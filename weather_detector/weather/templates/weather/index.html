@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'weather/css/weather.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header_site">
+            <h1>VENATOR'S WEATHER APP</h1>
+        </div>
+    </header>
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        <div class="search-div">
+            <input type="text" class="search" name="city" placeholder="Input city" onsubmit="">
+            <button class="btn" type="submit">
+                Search
+            </button>
+        </div>
+    </form>
+
+    <div class="info">
+        <h1 class="country_name">{{city}}</h1>
+        <h2>Country code: {{data.country_code}}</h2>
+        <h2>Coordinate: {{data.coordinate}} </h2>
+        <h2>Temp: {{data.temp}}</h2>
+        <h2>Feels like:{{data.feels_like}}</h2>
+        <h2>Pressure: {{data.pressure}}</h2>
+        <h2>Humidity:{{data.humidity}}</h2>
+        <h2>Description:{{data.description}}</h2>
+    </div>
+</body>
+</html>
